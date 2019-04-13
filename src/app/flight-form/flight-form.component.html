@@ -80,7 +80,7 @@
 </form>
 
 <!-- submite button -->
-<form #flightForm="ngForm" (ngSubmit)="handleSubmit()">
+<form #flightForm="ngForm" (ngSubmit)="handleSubmit()" >
     <div class="form-group" style="margin-top: 15px">
       <button class="btn btn-primary btn-block" [disabled]="!flightForm.form.valid">
         Submit
