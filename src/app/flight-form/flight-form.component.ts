@@ -9,6 +9,14 @@ import { Flight } from '../flight';
 export class FlightFormComponent implements OnInit {
 
   flightModel: Flight;
+  // Array of cities
+  cities:Array<string> = [
+    'Lagos',
+    'Mumbai',
+    'New York',
+    'London',
+    'Nairobi'
+  ];
   constructor() {
     this.flightModel = new Flight('', '', '', '', 0, '', 0, 0, '');
   }
