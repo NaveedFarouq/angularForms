@@ -9,7 +9,7 @@ import { Flight } from '../flight';
 export class FlightFormComponent implements OnInit {
 
   flightModel: Flight;
-  // Array of cities
+
   cities:Array<string> = [
     'Lagos',
     'Mumbai',
@@ -22,4 +22,9 @@ export class FlightFormComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  // Handle for submission
+  handleSubmit() {
+    console.log(this.flightModel);
+  }
 }
