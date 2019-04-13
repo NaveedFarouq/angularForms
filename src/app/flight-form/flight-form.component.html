@@ -1,4 +1,5 @@
 <form>
+  <!-- FUll name attribute -->
   <div class="form-group">
     <label class="label" for="fullName">Full Name</label>
     <input 
@@ -6,8 +7,22 @@
       class="form-control" 
       [(ngModel)]="flightModel.fullName"
       name="fullName"
-    > {{flightModel.fullName}}
+      #name="ngModel"
+      required
+      minlength="6">
+     {{flightModel.fullName}}
   </div>
+<!-- full name validation errors -->
+  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+    <div *ngIf="name.errors.required">
+      Name is required.
+    </div>
+    <div *ngIf="name.errors.minlength">
+      Name must be at least 6 characters long.
+    </div>
+  </div>
+
+<!-- From and To fields -->
   <div class="row">
     <div class="col-md-6">
       <label class="label" for="from">From</label>
@@ -23,6 +38,7 @@
     </div>
   </div>
 
+  <!-- return type field -->
   <div class="row" style="margin-top: 15px">
     <div class="col-md-5">
       <label for="" style="display: block">Trip Type</label>
@@ -33,6 +49,8 @@
         <input type="radio" name="type" [(ngModel)]="flightModel.type" value="Return"> Return
       </label>
     </div>
+
+    <!-- departures and arrivals -->
     <div class="col-md-4">
       <label for="departure">Departure</label>
       <input type="date" id="departure" class="form-control" [(ngModel)]="flightModel.departure" name="departure">
@@ -42,6 +60,8 @@
       <input type="date" id="arrival" class="form-control" [(ngModel)]="flightModel.arrival" name="arrival">
     </div>
   </div>
+
+  <!-- passenger types -->
   <div class="row" style="margin-top: 15px">
     <div class="col-md-4">
       <label for="adults">Adults</label>
@@ -56,5 +76,5 @@
       <input type="number" id="infants" class="form-control" [(ngModel)]="flightModel.infants" name="infants">
     </div>
   </div>
-  
+
 </form>
